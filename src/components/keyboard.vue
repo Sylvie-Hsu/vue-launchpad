@@ -167,7 +167,7 @@ export default {
   created: function(){
     console.log(this)
     const ts = this
-    fetch('static/eq.zip')
+    fetch('static/animals.zip')
     .then(function(raw){
       return raw.blob()
     })
