@@ -400,17 +400,17 @@ export default {
   margin-right: 10px;
   position: relative;
 }
-.keyboard .button-color-purple{
-  background-color: #A149C7
-}
 .keyboard .button-color-green{
-  background-color: #17AD35
+  background-color: #00AF7C
 }
 .keyboard .button-color-blue{
-  background-color: #11DFFA;
+  background-color: #00BCC9;
+}
+.keyboard .button-color-purple{
+  background-color: #7300C4
 }
 .keyboard .button-color-red{
-  background-color: #FE3B7D
+  background-color: #D1004E
 }
 .button-hide{
   width: 30px;
