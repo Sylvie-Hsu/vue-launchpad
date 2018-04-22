@@ -13,6 +13,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "element-ui": "^2.3.4",
+    "howler": "^2.0.9",
+    "jszip": "^3.1.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
