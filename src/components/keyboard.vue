@@ -246,10 +246,17 @@ export default {
         }
         currentPlay = music
       }
+      const keyStatus = []
       document.onkeydown = function(e){
         const code = e.keyCode
+        if(!keyStatus[code]){
+          keyStatus[code] = true
+        }
+        else{
+          return
+        }
         const id = ts.clickID.indexOf(code)
-        console.log(code)
+        console.log(code + ' is down')
         if(id != -1){
           const row = Math.floor(id / 12)
           const col = id % 12
@@ -284,6 +291,8 @@ export default {
       }
       document.onkeyup = function(e){
         const code = e.keyCode
+        keyStatus[code] = false
+        console.log(code + ' is up')
         const id = ts.clickID.indexOf(code)
         if(id != -1){
           const row = Math.floor(id / 12)
