@@ -4,7 +4,7 @@
     element-loading-background="rgba(0, 0, 0, 0)"
     :element-loading-text="statusMessage"
     >
-    <div v-if="status == 4" style="display: flex; flex-direction: column; justify-content: center; height: 100%">
+    <div v-if="status == 4" style="display: flex; flex-direction: column; justify-content: center; height: 100%; position: relative;">
       <div style="display: flex; flex-direction: column;">
         <div v-for="i in 4" :key="i" style="display: flex; flex-direction: row; justify-content: center; margin-bottom: 10px; margin-left: 10px;">
           <div v-for="j in i" :key="j" class="button-hide"></div>
@@ -49,8 +49,14 @@
           </div>
         </div>
       </div>
+      <div class="canvas">
+          <canvas></canvas>
+      </div>
     </div>
-    <div v-if="status == -1"></div>
+    <div v-if="status == -1" style="display: flex; flex-direction: column; justify-content: center; height: 100%; text-align: center;">
+      <div style="display: flex; flex-direction: row; justify-content: center;"><img src="../assets/error-sign.svg" width="200px"></div>
+      <p style="color: #fff;">web server error</p>
+    </div>
   </div>
 </template>
 
@@ -171,6 +177,10 @@ export default {
       .then(function(fzip){
         ts.status = 2
         ts.fileToblob(zip.files)
+      })
+      .catch(function(err){
+        ts.status = -1
+        console.error(err)
       })
     })
     .catch(function(err){
@@ -340,6 +350,17 @@ export default {
   width: 30px;
   height: 30px;
   margin-right: 0px;
+}
+.canvas{
+  position: absolute;
+  width: 100%;
+  height: calc(100% + 20px);
+  top: -20px;
+  left: 0;
+}
+.canvas canvas{
+  width: 100%;
+  height: 100%;
 }
 </style>
 
