@@ -4,6 +4,12 @@
     element-loading-background="rgba(0, 0, 0, 0)"
     :element-loading-text="statusMessage"
     >
+    <div style="display: none;">
+      <img src="../assets/blue.png" class="water-img water-img-blue">
+      <img src="../assets/green.png" class="water-img water-img-green">
+      <img src="../assets/purple.png" class="water-img water-img-purple">
+      <img src="../assets/red.png" class="water-img water-img-red">
+    </div>
     <div v-if="status == 4" style="display: flex; flex-direction: column; justify-content: center; height: 100%; position: relative;">
       <div style="display: flex; flex-direction: column;">
         <div v-for="i in 4" :key="i" style="display: flex; flex-direction: row; justify-content: center; margin-bottom: 10px; margin-left: 10px;">
@@ -246,6 +252,52 @@ export default {
         }
         currentPlay = music
       }
+      const addWaterAnimation = function(div, row){
+        if(row == 0){
+          const greenDiv = document.createElement('div')
+          const greenNew = document.createElement('div')
+          greenNew.className = 'water-div-animation-green'
+          greenDiv.className = 'water-div'
+          greenDiv.appendChild(greenNew)
+          div.appendChild(greenDiv)
+          setTimeout(function(){
+            div.removeChild(greenDiv)
+          }, 1000)
+        }
+        else if(row == 1){
+          const blueDiv = document.createElement('div')
+          const blueNew = document.createElement('div')
+          blueNew.className = 'water-div-animation-blue'
+          blueDiv.className = 'water-div'
+          blueDiv.appendChild(blueNew)
+          div.appendChild(blueDiv)
+          setTimeout(function(){
+            div.removeChild(blueDiv)
+          }, 1000)
+        }
+        else if(row == 2){
+          const purpleDiv = document.createElement('div')
+          const purpleNew = document.createElement('div')
+          purpleNew.className = 'water-div-animation-purple'
+          purpleDiv.className = 'water-div'
+          purpleDiv.appendChild(purpleNew)
+          div.appendChild(purpleDiv)
+          setTimeout(function(){
+            div.removeChild(purpleDiv)
+          }, 1000)
+        }
+        else if(row == 3){
+          const redDiv = document.createElement('div')
+          const redNew = document.createElement('div')
+          redNew.className = 'water-div-animation-red'
+          redDiv.className = 'water-div'
+          redDiv.appendChild(redNew)
+          div.appendChild(redDiv)
+          setTimeout(function(){
+            div.removeChild(redDiv)
+          }, 1000)
+        }
+      }
       const keyStatus = []
       document.onkeydown = function(e){
         const code = e.keyCode
@@ -261,6 +313,7 @@ export default {
           const row = Math.floor(id / 12)
           const col = id % 12
           const div = document.getElementsByClassName('button-' + row + '-' + col)[0]
+          addWaterAnimation(div, row)
           ts.buttonStatus[row][col] = 1
           if(row == 0){
             div.className += ' button-color-green'
@@ -309,10 +362,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.keyboard{
+  position: relative;
+  z-index: 1;
+}
 .button, .button-dir{
   background-color: #16171C;
   border-radius: 5px;
-  z-index: 10;
   border: 1px solid rgba(100,100,100,0.1);
   display: flex;
   flex-direction: row;
@@ -342,6 +398,7 @@ export default {
   width: 60px;
   height: 60px;
   margin-right: 10px;
+  position: relative;
 }
 .keyboard .button-color-purple{
   background-color: #A149C7
@@ -379,5 +436,140 @@ export default {
 }
 .keyboard .el-loading-spinner .el-loading-text{
     color: #fff;
+}
+.keyboard .water-img-green{
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  top: -60px;
+  left: -60px;
+}
+.keyboard .water-div{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.keyboard .water-div-animation-green{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background-color: #17AD35;
+  animation: flow-green 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+@keyframes flow-green {
+  0%{
+    width: 60px;
+    height: 60px;
+    left: 0;
+    top: 0;
+    background-color: #17AD35;
+    opacity: 1;
+  }
+  100%{
+    width: 150px;
+    height: 150px;
+    left: -45px;
+    top: -45px;
+    background-color: #2EE0FE;
+    opacity: 0;
+  }
+}
+.keyboard .water-div-animation-purple{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background-color: #A149C7;
+  animation: flow-purple 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+@keyframes flow-purple {
+  0%{
+    width: 60px;
+    height: 60px;
+    left: 0;
+    top: 0;
+    background-color: #A149C7;
+    opacity: 1;
+  }
+  100%{
+    width: 150px;
+    height: 150px;
+    left: -45px;
+    top: -45px;
+    background-color: #FF2430;
+    opacity: 0;
+  }
+}
+.keyboard .water-div-animation-red{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background-color: #FE3B7D;
+  animation: flow-red 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+@keyframes flow-red {
+  0%{
+    width: 60px;
+    height: 60px;
+    left: 0;
+    top: 0;
+    background-color: #FE3B7D;
+    opacity: 1;
+  }
+  100%{
+    width: 150px;
+    height: 150px;
+    left: -45px;
+    top: -45px;
+    background-color: #222CAC;
+    opacity: 0;
+  }
+}
+.keyboard .water-div-animation-blue{
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background-color: #11DFFA;
+  animation: flow-blue 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+@keyframes flow-blue {
+  0%{
+    width: 60px;
+    height: 60px;
+    left: 0;
+    top: 0;
+    background-color: #11DFFA;
+    opacity: 1;
+  }
+  100%{
+    width: 150px;
+    height: 150px;
+    left: -45px;
+    top: -45px;
+    background-color: #514AD3;
+    opacity: 0;
+  }
 }
 </style>
