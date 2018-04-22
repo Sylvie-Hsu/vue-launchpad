@@ -454,10 +454,10 @@ export default {
 }
 .keyboard .water-div-animation-green{
   position: absolute;
-  width: 60px;
-  height: 60px;
-  left: 0;
-  top: 0;
+  width: 90px;
+  height: 90px;
+  left: -15px;
+  top: -15px;
   border-radius: 50%;
   background-color: #17AD35;
   animation: flow-green 1s;
@@ -466,10 +466,10 @@ export default {
 }
 @keyframes flow-green {
   0%{
-    width: 60px;
-    height: 60px;
-    left: 0;
-    top: 0;
+    width: 90px;
+    height: 90px;
+    left: -15px;
+    top: -15px;
     background-color: #17AD35;
     opacity: 1;
   }
@@ -484,10 +484,10 @@ export default {
 }
 .keyboard .water-div-animation-purple{
   position: absolute;
-  width: 60px;
-  height: 60px;
-  left: 0;
-  top: 0;
+  width: 90px;
+  height: 90px;
+  left: -15px;
+  top: -15px;
   border-radius: 50%;
   background-color: #A149C7;
   animation: flow-purple 1s;
@@ -496,10 +496,10 @@ export default {
 }
 @keyframes flow-purple {
   0%{
-    width: 60px;
-    height: 60px;
-    left: 0;
-    top: 0;
+    width: 90px;
+    height: 90px;
+    left: -15px;
+    top: -15px;
     background-color: #A149C7;
     opacity: 1;
   }
@@ -514,10 +514,10 @@ export default {
 }
 .keyboard .water-div-animation-red{
   position: absolute;
-  width: 60px;
-  height: 60px;
-  left: 0;
-  top: 0;
+  width: 90px;
+  height: 90px;
+  left: -15px;
+  top: -15px;
   border-radius: 50%;
   background-color: #FE3B7D;
   animation: flow-red 1s;
@@ -526,10 +526,10 @@ export default {
 }
 @keyframes flow-red {
   0%{
-    width: 60px;
-    height: 60px;
-    left: 0;
-    top: 0;
+    width: 90px;
+    height: 90px;
+    left: -15px;
+    top: -15px;
     background-color: #FE3B7D;
     opacity: 1;
   }
@@ -544,10 +544,10 @@ export default {
 }
 .keyboard .water-div-animation-blue{
   position: absolute;
-  width: 60px;
-  height: 60px;
-  left: 0;
-  top: 0;
+  width: 90px;
+  height: 90px;
+  left: -15px;
+  top: -15px;
   border-radius: 50%;
   background-color: #11DFFA;
   animation: flow-blue 1s;
@@ -556,10 +556,10 @@ export default {
 }
 @keyframes flow-blue {
   0%{
-    width: 60px;
-    height: 60px;
-    left: 0;
-    top: 0;
+    width: 90px;
+    height: 90px;
+    left: -15px;
+    top: -15px;
     background-color: #11DFFA;
     opacity: 1;
   }
